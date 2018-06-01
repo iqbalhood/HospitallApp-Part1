@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hospital App</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+</head>
+
+<body ng-app="hospitalApp" ng-controller="DashboardController">
+
+    <h1>Welcome To Dashboard Page</h1>
+
+    <script> 
+    var app = angular.module("hospitalApp", ["ngRoute", "ngCookies"]);
+    app.controller('ExampleController', ['$scope', '$cookies', '$window', function ($scope, $cookies, $window) {
+            // Retrieving a cookie
+            var favoriteCookie = $cookies.get('login_info');
+
+            if (favoriteCookie) {
+                alert("You Have Access To This Page...!!!");
+            } else {
+                alert("You Don't Have Access To This Page.");
+                $window.location.href = 'index.html';
+            }
+    }]);
+
+    </script>   
+ 
+</body>
+</html>
